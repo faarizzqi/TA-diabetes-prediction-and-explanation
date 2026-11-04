@@ -1,0 +1,25 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebooks (eksperimen tidak perlu masuk image)
+notebooks/
+.ipynb_checkpoints/
+
+# Git
+.git/
+.gitignore
+
+# Documentation & IDE
+.vscode/
+.idea/
+*.md
+.DS_Store
