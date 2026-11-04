@@ -187,31 +187,32 @@ Aplikasi Streamlit menggunakan **Top Navigation** (`st.navigation position="top"
 
 ---
 
-## 9. Instalasi & Eksekusi
-### Opsi A – Docker (Direkomendasikan)
+## 9. Instalasi & Eksekusi (Docker Base)
+
+1. **Clone repository**  
 ```bash
-sudo docker compose up --build -d   # Bangun dan jalankan di background
+git clone https://github.com/faarizzqi/TA-diabetes-prediction-and-explanation.git
+cd TA-diabetes-prediction-and-explanation
 ```
-Untuk menghentikan container:
+
+2. **Pasang Docker**  
+Unduh dan instal Docker dari https://docker.com (ikuti petunjuk instalasi untuk sistem operasi Anda).
+
+3. **Bangun dan jalankan container**  
+```bash
+sudo docker compose up --build -d   # Membuat image dan menjalankan container di background
+```
+
+Dockerfile mengatur aplikasi Streamlit pada port **8501**. Jika ingin menggunakan port lain, ubah pemetaan port pada `docker-compose.yml`, misalnya:
+```yaml
+ports:
+  - "8080:8501"
+```
+Kemudian jalankan kembali `docker compose up --build -d`.
+
+**Untuk menghentikan container**
 ```bash
 sudo docker compose down
-```
-
-### Opsi B – Eksekusi Lokal Manual
-```bash
-# Dependensi sistem (Ubuntu/Debian)
-sudo apt update && sudo apt install -y python3-pip python3-venv libgomp1
-
-# Lingkungan virtual
-python3 -m venv .venv
-source .venv/bin/activate
-
-# Paket Python
-pip install --upgrade pip
-pip install -r requirements.txt
-
-# Jalankan aplikasi
-streamlit run app.py
 ```
 
 ---
